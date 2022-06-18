@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Start';
+  
+  loginForm = new FormGroup({
+    name : new FormControl('', [Validators.required]),
+    password: new FormControl('',[Validators.required])
+  });
+
+  submit(){
+    console.log(this.loginForm);
+  }
 }
